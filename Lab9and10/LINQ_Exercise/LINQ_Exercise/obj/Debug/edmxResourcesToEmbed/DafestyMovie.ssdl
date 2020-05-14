@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DafestyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Documentaries">
+    <Key>
+      <PropertyRef Name="VideoCode" />
+    </Key>
+    <Property Name="VideoCode" Type="smallint" Nullable="false" />
+    <Property Name="VideoTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="MovieType" Type="nvarchar" MaxLength="30" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="3" />
+    <Property Name="Price" Type="real" />
+    <Property Name="Producer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Director" Type="nvarchar" MaxLength="50" />
+    <Property Name="Media" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalStock" Type="smallint" />
+    <Property Name="NumberRented" Type="smallint" />
+    <Property Name="PreviousEpisode" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Movies">
+    <Key>
+      <PropertyRef Name="VideoCode" />
+    </Key>
+    <Property Name="VideoCode" Type="smallint" Nullable="false" />
+    <Property Name="MovieTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="MovieType" Type="nvarchar" MaxLength="10" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="3" />
+    <Property Name="RentalPrice" Type="real" />
+    <Property Name="ProducerID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Director" Type="nvarchar" MaxLength="50" />
+    <Property Name="Media" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalStock" Type="smallint" />
+    <Property Name="NumberRented" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Producers">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProducerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="ProducerWebSite">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Movies_Producers">
+    <End Role="Producers" Type="Self.Producers" Multiplicity="0..1" />
+    <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="Movies">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProducerWebSite_Producers">
+    <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
+    <End Role="ProducerWebSite" Type="Self.ProducerWebSite" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="ProducerWebSite">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DafestyModelStoreContainer">
+    <EntitySet Name="Documentaries" EntityType="Self.Documentaries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producers" EntityType="Self.Producers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProducerWebSite" EntityType="Self.ProducerWebSite" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Movies_Producers" Association="Self.FK_Movies_Producers">
+      <End Role="Producers" EntitySet="Producers" />
+      <End Role="Movies" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProducerWebSite_Producers" Association="Self.FK_ProducerWebSite_Producers">
+      <End Role="Producers" EntitySet="Producers" />
+      <End Role="ProducerWebSite" EntitySet="ProducerWebSite" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

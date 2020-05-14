@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DafestyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Documentaries">
+          <Key>
+            <PropertyRef Name="VideoCode" />
+          </Key>
+          <Property Name="VideoCode" Type="smallint" Nullable="false" />
+          <Property Name="VideoTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="MovieType" Type="nvarchar" MaxLength="30" />
+          <Property Name="Rating" Type="nvarchar" MaxLength="3" />
+          <Property Name="Price" Type="real" />
+          <Property Name="Producer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Director" Type="nvarchar" MaxLength="50" />
+          <Property Name="Media" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalStock" Type="smallint" />
+          <Property Name="NumberRented" Type="smallint" />
+          <Property Name="PreviousEpisode" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="VideoCode" />
+          </Key>
+          <Property Name="VideoCode" Type="smallint" Nullable="false" />
+          <Property Name="MovieTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="MovieType" Type="nvarchar" MaxLength="10" />
+          <Property Name="Rating" Type="nvarchar" MaxLength="3" />
+          <Property Name="RentalPrice" Type="real" />
+          <Property Name="ProducerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Director" Type="nvarchar" MaxLength="50" />
+          <Property Name="Media" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalStock" Type="smallint" />
+          <Property Name="NumberRented" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Producers">
+          <Key>
+            <PropertyRef Name="ProducerID" />
+          </Key>
+          <Property Name="ProducerID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProducerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="ProducerWebSite">
+          <Key>
+            <PropertyRef Name="ProducerID" />
+          </Key>
+          <Property Name="ProducerID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Movies_Producers">
+          <End Role="Producers" Type="Self.Producers" Multiplicity="0..1" />
+          <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producers">
+              <PropertyRef Name="ProducerID" />
+            </Principal>
+            <Dependent Role="Movies">
+              <PropertyRef Name="ProducerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProducerWebSite_Producers">
+          <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
+          <End Role="ProducerWebSite" Type="Self.ProducerWebSite" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Producers">
+              <PropertyRef Name="ProducerID" />
+            </Principal>
+            <Dependent Role="ProducerWebSite">
+              <PropertyRef Name="ProducerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DafestyModelStoreContainer">
+          <EntitySet Name="Documentaries" EntityType="Self.Documentaries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producers" EntityType="Self.Producers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProducerWebSite" EntityType="Self.ProducerWebSite" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Movies_Producers" Association="Self.FK_Movies_Producers">
+            <End Role="Producers" EntitySet="Producers" />
+            <End Role="Movies" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProducerWebSite_Producers" Association="Self.FK_ProducerWebSite_Producers">
+            <End Role="Producers" EntitySet="Producers" />
+            <End Role="ProducerWebSite" EntitySet="ProducerWebSite" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DafestyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Documentary">
+          <Key>
+            <PropertyRef Name="VideoCode" />
+          </Key>
+          <Property Name="VideoCode" Type="Int16" Nullable="false" />
+          <Property Name="VideoTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MovieType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Single" />
+          <Property Name="Producer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Media" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalStock" Type="Int16" />
+          <Property Name="NumberRented" Type="Int16" />
+          <Property Name="PreviousEpisode" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Movy">
+          <Key>
+            <PropertyRef Name="VideoCode" />
+          </Key>
+          <Property Name="VideoCode" Type="Int16" Nullable="false" />
+          <Property Name="MovieTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MovieType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="RentalPrice" Type="Single" />
+          <Property Name="ProducerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Media" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalStock" Type="Int16" />
+          <Property Name="NumberRented" Type="Int16" />
+          <NavigationProperty Name="Producer" Relationship="Self.FK_Movies_Producers" FromRole="Movies" ToRole="Producers" />
+        </EntityType>
+        <EntityType Name="Producer">
+          <Key>
+            <PropertyRef Name="ProducerID" />
+          </Key>
+          <Property Name="ProducerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProducerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Movies_Producers" FromRole="Producers" ToRole="Movies" />
+          <NavigationProperty Name="ProducerWebSite" Relationship="Self.FK_ProducerWebSite_Producers" FromRole="Producers" ToRole="ProducerWebSite" />
+        </EntityType>
+        <EntityType Name="ProducerWebSite">
+          <Key>
+            <PropertyRef Name="ProducerID" />
+          </Key>
+          <Property Name="ProducerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Website" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Producer" Relationship="Self.FK_ProducerWebSite_Producers" FromRole="ProducerWebSite" ToRole="Producers" />
+        </EntityType>
+        <Association Name="FK_Movies_Producers">
+          <End Role="Producers" Type="Self.Producer" Multiplicity="0..1" />
+          <End Role="Movies" Type="Self.Movy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producers">
+              <PropertyRef Name="ProducerID" />
+            </Principal>
+            <Dependent Role="Movies">
+              <PropertyRef Name="ProducerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProducerWebSite_Producers">
+          <End Role="Producers" Type="Self.Producer" Multiplicity="1" />
+          <End Role="ProducerWebSite" Type="Self.ProducerWebSite" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Producers">
+              <PropertyRef Name="ProducerID" />
+            </Principal>
+            <Dependent Role="ProducerWebSite">
+              <PropertyRef Name="ProducerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DafestyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Documentaries" EntityType="Self.Documentary" />
+          <EntitySet Name="Movies" EntityType="Self.Movy" />
+          <EntitySet Name="Producers" EntityType="Self.Producer" />
+          <EntitySet Name="ProducerWebSites" EntityType="Self.ProducerWebSite" />
+          <AssociationSet Name="FK_Movies_Producers" Association="Self.FK_Movies_Producers">
+            <End Role="Producers" EntitySet="Producers" />
+            <End Role="Movies" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProducerWebSite_Producers" Association="Self.FK_ProducerWebSite_Producers">
+            <End Role="Producers" EntitySet="Producers" />
+            <End Role="ProducerWebSite" EntitySet="ProducerWebSites" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DafestyModelStoreContainer" CdmEntityContainer="DafestyEntities">
+          <EntitySetMapping Name="Documentaries">
+            <EntityTypeMapping TypeName="DafestyModel.Documentary">
+              <MappingFragment StoreEntitySet="Documentaries">
+                <ScalarProperty Name="VideoCode" ColumnName="VideoCode" />
+                <ScalarProperty Name="VideoTitle" ColumnName="VideoTitle" />
+                <ScalarProperty Name="MovieType" ColumnName="MovieType" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Producer" ColumnName="Producer" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Media" ColumnName="Media" />
+                <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+                <ScalarProperty Name="NumberRented" ColumnName="NumberRented" />
+                <ScalarProperty Name="PreviousEpisode" ColumnName="PreviousEpisode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="DafestyModel.Movy">
+              <MappingFragment StoreEntitySet="Movies">
+                <ScalarProperty Name="VideoCode" ColumnName="VideoCode" />
+                <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+                <ScalarProperty Name="MovieType" ColumnName="MovieType" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="RentalPrice" ColumnName="RentalPrice" />
+                <ScalarProperty Name="ProducerID" ColumnName="ProducerID" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Media" ColumnName="Media" />
+                <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+                <ScalarProperty Name="NumberRented" ColumnName="NumberRented" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producers">
+            <EntityTypeMapping TypeName="DafestyModel.Producer">
+              <MappingFragment StoreEntitySet="Producers">
+                <ScalarProperty Name="ProducerID" ColumnName="ProducerID" />
+                <ScalarProperty Name="ProducerName" ColumnName="ProducerName" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProducerWebSites">
+            <EntityTypeMapping TypeName="DafestyModel.ProducerWebSite">
+              <MappingFragment StoreEntitySet="ProducerWebSite">
+                <ScalarProperty Name="ProducerID" ColumnName="ProducerID" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
