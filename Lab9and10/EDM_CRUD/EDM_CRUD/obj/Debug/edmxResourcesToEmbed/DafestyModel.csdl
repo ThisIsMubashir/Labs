@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DafestyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="VideoCode" />
+    </Key>
+    <Property Name="VideoCode" Type="Int16" Nullable="false" />
+    <Property Name="MovieTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Genre" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="RentalCost" Type="Single" />
+    <Property Name="ProducerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Media" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalStock" Type="Int16" />
+    <Property Name="NumberRented" Type="Int16" />
+    <NavigationProperty Name="Producer" Relationship="Self.FK_Movies_Producers" FromRole="Movies" ToRole="Producers" />
+  </EntityType>
+  <EntityType Name="Producer">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProducerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Movies" Relationship="Self.FK_Movies_Producers" FromRole="Producers" ToRole="Movies" />
+    <NavigationProperty Name="ProducerWebSite" Relationship="Self.FK_ProducerWebSite_Producers" FromRole="Producers" ToRole="ProducerWebSite" />
+  </EntityType>
+  <EntityType Name="ProducerWebSite">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Producer" Relationship="Self.FK_ProducerWebSite_Producers" FromRole="ProducerWebSite" ToRole="Producers" />
+  </EntityType>
+  <Association Name="FK_Movies_Producers">
+    <End Role="Producers" Type="Self.Producer" Multiplicity="0..1" />
+    <End Role="Movies" Type="DafestyModel.Movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="Movies">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProducerWebSite_Producers">
+    <End Role="Producers" Type="Self.Producer" Multiplicity="1" />
+    <End Role="ProducerWebSite" Type="Self.ProducerWebSite" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="ProducerWebSite">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DafestyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Movies1" EntityType="DafestyModel.Movie" />
+    <EntitySet Name="Producers" EntityType="Self.Producer" />
+    <EntitySet Name="ProducerWebSites" EntityType="Self.ProducerWebSite" />
+    <AssociationSet Name="FK_Movies_Producers" Association="Self.FK_Movies_Producers">
+      <End Role="Producers" EntitySet="Producers" />
+      <End Role="Movies" EntitySet="Movies1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProducerWebSite_Producers" Association="Self.FK_ProducerWebSite_Producers">
+      <End Role="Producers" EntitySet="Producers" />
+      <End Role="ProducerWebSite" EntitySet="ProducerWebSites" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

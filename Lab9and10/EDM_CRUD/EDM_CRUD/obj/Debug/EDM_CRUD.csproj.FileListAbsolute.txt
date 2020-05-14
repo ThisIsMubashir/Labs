@@ -1,0 +1,15 @@
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EDM_CRUD.exe.config
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EDM_CRUD.exe
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EDM_CRUD.pdb
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EntityFramework.dll
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EntityFramework.xml
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.csprojAssemblyReference.cache
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.Form1.resources
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.Properties.Resources.resources
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.csproj.GenerateResource.cache
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.csproj.CoreCompileInputs.cache
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.csproj.CopyComplete
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.exe
+C:\Users\Mubashir Hussain\source\repos\EDM_CRUD\EDM_CRUD\obj\Debug\EDM_CRUD.pdb
