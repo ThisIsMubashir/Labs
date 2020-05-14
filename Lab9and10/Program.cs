@@ -34,10 +34,27 @@ namespace CodeFirstModel
              db.Subjects.Add(IRsubj);
              db.SaveChanges();*/
 
-            var qry = from x in db.Students select x;
-            foreach (Student s in qry) { Console.WriteLine(s.Name + " " + s.StudentId); }
-            Console.ReadLine();
+            /* var qry = from x in db.Students select x;
+             foreach (Student s in qry) { Console.Write(s.Name, " ", s.StudentId," ");
+                 foreach (Subject v in s.Subjects) { Console.Write(v.Name, " "); }
+                 Console.Write('\n');
+             }*/
 
+            /*Student std = db.Students.Where(x => x.Name == "Mubashir Hussain").First();
+            std.Name = "Sara";
+            db.SaveChanges();*/
+
+            //var qry = from x in db.Students where x.Name == "Mubashir Hussain" select x;
+            //var qry = (from x in db.Students where x.Name == "Mubashir Hussain" select x).Count();
+            //var qry = (from x in db.Students select x.StudentId).Sum();
+            //var qry = (from x in db.Students select x.StudentId).Max();
+            //var qry = (from x in db.Students select x.StudentId).Min();
+            //var qry = (from x in db.Students select x.StudentId).Average();
+
+            var qry = from x in db.Students orderby  x.Name descending select x;
+            //Console.WriteLine(qry);
+            foreach (Student s in qry) { Console.WriteLine(s.Name); }
+            Console.ReadLine();
         }
     }
 
