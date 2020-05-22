@@ -25,8 +25,7 @@ namespace LINQ_Exercise
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Documentary> Documentaries { get; set; }
-        public virtual DbSet<Movy> Movies { get; set; }
+        public virtual DbSet<Movie> Movies1 { get; set; }
         public virtual DbSet<Producer> Producers { get; set; }
         public virtual DbSet<ProducerWebSite> ProducerWebSites { get; set; }
     }

@@ -12,18 +12,19 @@ namespace LINQ_Exercise
     using System;
     using System.Collections.Generic;
     
-    public partial class Documentary
+    public partial class Movie
     {
         public short VideoCode { get; set; }
-        public string VideoTitle { get; set; }
+        public string MovieTitle { get; set; }
         public string MovieType { get; set; }
         public string Rating { get; set; }
-        public Nullable<float> Price { get; set; }
-        public string Producer { get; set; }
+        public Nullable<float> RentalPrice { get; set; }
+        public string ProducerID { get; set; }
         public string Director { get; set; }
         public string Media { get; set; }
         public Nullable<short> TotalStock { get; set; }
         public Nullable<short> NumberRented { get; set; }
-        public Nullable<short> PreviousEpisode { get; set; }
+    
+        public virtual Producer Producer { get; set; }
     }
 }

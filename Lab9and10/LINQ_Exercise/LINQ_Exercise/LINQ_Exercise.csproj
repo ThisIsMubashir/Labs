@@ -9,12 +9,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>LINQ_Exercise</RootNamespace>
     <AssemblyName>LINQ_Exercise</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,23 +59,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DafestyMovie.Context.cs">
+    <Compile Include="DafestyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DafestyMovie.Context.tt</DependentUpon>
+      <DependentUpon>DafestyModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DafestyMovie.cs">
+    <Compile Include="DafestyModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DafestyMovie.tt</DependentUpon>
+      <DependentUpon>DafestyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DafestyMovie.Designer.cs">
+    <Compile Include="DafestyModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DafestyMovie.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Documentary.cs">
-      <DependentUpon>DafestyMovie.tt</DependentUpon>
+      <DependentUpon>DafestyModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -82,14 +80,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Movy.cs">
-      <DependentUpon>DafestyMovie.tt</DependentUpon>
+    <Compile Include="Movie.cs">
+      <DependentUpon>DafestyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Producer.cs">
-      <DependentUpon>DafestyMovie.tt</DependentUpon>
+      <DependentUpon>DafestyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProducerWebSite.cs">
-      <DependentUpon>DafestyMovie.tt</DependentUpon>
+      <DependentUpon>DafestyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,13 +102,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="DafestyMovie.edmx">
+    <EntityDeploy Include="DafestyModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DafestyMovie.Designer.cs</LastGenOutput>
+      <LastGenOutput>DafestyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DafestyMovie.edmx.diagram">
-      <DependentUpon>DafestyMovie.edmx</DependentUpon>
+    <None Include="DafestyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DafestyModel.edmx</DependentUpon>
+      <LastGenOutput>DafestyModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DafestyModel.edmx.diagram">
+      <DependentUpon>DafestyModel.edmx</DependentUpon>
+    </None>
+    <None Include="DafestyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DafestyModel.edmx</DependentUpon>
+      <LastGenOutput>DafestyModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -125,18 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DafestyMovie.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DafestyMovie.edmx</DependentUpon>
-      <LastGenOutput>DafestyMovie.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DafestyMovie.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DafestyMovie.edmx</DependentUpon>
-      <LastGenOutput>DafestyMovie.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

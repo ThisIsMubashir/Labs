@@ -13,3 +13,16 @@ C:\Users\Mubashir Hussain\source\repos\LINQ_Exercise\LINQ_Exercise\obj\Debug\LIN
 C:\Users\Mubashir Hussain\source\repos\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.csproj.CopyComplete
 C:\Users\Mubashir Hussain\source\repos\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.exe
 C:\Users\Mubashir Hussain\source\repos\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.pdb
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\LINQ_Exercise.exe.config
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.exe
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.pdb
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\LINQ_Exercise.exe
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\LINQ_Exercise.pdb
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\EntityFramework.dll
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\EntityFramework.SqlServer.dll
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\EntityFramework.xml
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\bin\Debug\EntityFramework.SqlServer.xml
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.csprojResolveAssemblyReference.cache
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.Form1.resources
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.Properties.Resources.resources
+\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\obj\Debug\LINQ_Exercise.csproj.GenerateResource.Cache

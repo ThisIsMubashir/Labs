@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Mubashir Hussain\source\repos\LINQ_Exercise\LINQ_Exercise\DafestyMovie.edmx'. 
+﻿// T4 code generation is enabled for model '\\SYDDC01\syd staff roaming profile$\mubashir.hussain\Desktop\Labs\Lab9and10\LINQ_Exercise\LINQ_Exercise\DafestyModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

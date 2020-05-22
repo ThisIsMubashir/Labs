@@ -21,11 +21,11 @@ namespace LINQ_Exercise
         private void btnEx1_Click(object sender, EventArgs e)
         {
             DafestyEntities context = new DafestyEntities();
-            //var qry = from x in context.Movies select x;
-            var qry = context.Movies.ToList();
-            //List<Movy> clst = qry.ToList<Movy>();
-            //dataGridView1.DataSource = clst;
-            dataGridView1.DataSource = qry;
+            var qry = from x in context.Movies select x;
+           // var qry = context.Movies.ToList();
+            List<Movy> clst = qry.ToList<Movy>();
+            dataGridView1.DataSource = clst;
+            //dataGridView1.DataSource = qry;
         }
 
         private void btnEx2_Click(object sender, EventArgs e)

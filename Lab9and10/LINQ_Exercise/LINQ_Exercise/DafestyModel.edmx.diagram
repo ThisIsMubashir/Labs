@@ -4,9 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="95a79919941f41a98c0500f94e102efe" Name="Diagram1">
-        <EntityTypeShape EntityType="DafestyModel.Documentary" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DafestyModel.Movy" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="691cb87b943f462f80874c4017823bd6" Name="Diagram1">
+        <EntityTypeShape EntityType="DafestyModel.Movie" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DafestyModel.Producer" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DafestyModel.ProducerWebSite" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="DafestyModel.FK_Movies_Producers" ManuallyRouted="false" />

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DafestyModelStoreContainer" CdmEntityContainer="DafestyEntities">
+    <EntitySetMapping Name="Movies1">
+      <EntityTypeMapping TypeName="DafestyModel.Movie">
+        <MappingFragment StoreEntitySet="Movies">
+          <ScalarProperty Name="VideoCode" ColumnName="VideoCode" />
+          <ScalarProperty Name="MovieTitle" ColumnName="MovieTitle" />
+          <ScalarProperty Name="Genere" ColumnName="MovieType" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="RentalPrice" ColumnName="RentalPrice" />
+          <ScalarProperty Name="ProducerID" ColumnName="ProducerID" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="Media" ColumnName="Media" />
+          <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+          <ScalarProperty Name="NumberRented" ColumnName="NumberRented" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producers">
+      <EntityTypeMapping TypeName="DafestyModel.Producer">
+        <MappingFragment StoreEntitySet="Producers">
+          <ScalarProperty Name="ProducerID" ColumnName="ProducerID" />
+          <ScalarProperty Name="ProducerName" ColumnName="ProducerName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProducerWebSites">
+      <EntityTypeMapping TypeName="DafestyModel.ProducerWebSite">
+        <MappingFragment StoreEntitySet="ProducerWebSite">
+          <ScalarProperty Name="ProducerID" ColumnName="ProducerID" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
